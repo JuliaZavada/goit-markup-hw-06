@@ -1,0 +1,32 @@
+/*****modal*****/
+.modal {
+  width: 408px;
+  min-height: 584px;
+  padding: 72px 24px 24px 24px;
+}
+.modal-checkbox {
+  margin-bottom: 24px;
+  display: flex;
+flex-wrap: nowrap;
+gap: 8px;
+}
+.check-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: baseline;
+}
+
+
+.check-element {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;}
+  
+ .check-icon { 
+  flex-shrink: 0;
+}
+
+.check-linck {
+  margin-left: 4px;
+}
+
