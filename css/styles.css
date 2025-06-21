@@ -56,13 +56,13 @@ button {
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
+    min-width: 768px;
   }
 }
 
 @media screen and (min-width: 1158px) {
   .container {
-    max-width: 1440px;
+    min-width: 1158px;
     padding: 0 15px;
   }
 }
@@ -102,7 +102,7 @@ button {
 .burger-btn {
   padding: 0;
   border: none;
-  border-color: transparent;
+  background-color: transparent;
   display: block;
 }
 .burger-icon {
@@ -221,9 +221,10 @@ button {
   position: relative;
   padding-top: 72px;
   padding-bottom: 40px;
+
   display: flex;
   flex-direction: column;
-  width: 100%;
+  height: 100%;
 }
 
 .mobile-close {
@@ -259,7 +260,7 @@ button {
 }
 
 .mobile-menu-nav {
-  margin-bottom: 168px;
+  margin-bottom: auto;
 }
 .mobile-nav-list {
   display: flex;
@@ -268,11 +269,15 @@ button {
 }
 
 .mobile-nav-link {
+  display: block;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.11;
   letter-spacing: 0.02em;
   color: #2e2f42;
+}
+.mobile-nav-link.mobile-current {
+  color: #404bbf;
 }
 .mobile-nav-link:hover,
 .mobile-nav-link:focus {
@@ -284,12 +289,10 @@ button {
 .mobile-menu-adress {
   font-style: normal;
   display: block;
-  margin-bottom: 48px;
-}
-
+}  
 .mobile-adress-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 24px;
 }
 .mobile-adress-link {
@@ -302,6 +305,10 @@ button {
 
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.mobile-adress-link.mobile-current {
+  color: #4d5ae5;
+}
+
 .mobile-adress .mobile-adress-link:hover,
 .mobile-adress .mobile-adress-link:focus {
   color: #4d5ae5;
@@ -312,6 +319,7 @@ button {
   justify-content: center;
   align-items: center;
   gap: 40px;
+  margin-top: 48px;
 }
 .mobile-media-item {
   width: 40px;
@@ -346,7 +354,7 @@ button {
 .main {
   padding-top: 72px;
   padding-bottom: 72px;
-  min-width: 320px;
+  max-width: 320px;
   background-color: #2e2f42;
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
@@ -403,7 +411,7 @@ button {
 
 @media screen and (min-width: 768px) {
   .main {
-    min-width: 768px;
+    max-width: 768px;
     padding-top: 112px;
     padding-bottom: 112px;
     background-image: linear-gradient(
@@ -414,6 +422,7 @@ button {
   }
   @media screen and (min-resolution: 2x) {
     .main {
+      max-width: 1158px;
       background-image: linear-gradient(
           rgba(46, 47, 66, 0.7),
           rgba(46, 47, 66, 0.7)
@@ -492,18 +501,24 @@ button {
     row-gap: 72px;
   }
   .advantages-list-item {
-    flex-basis: calc((100% - 24px) / 2);
+    width: calc((100% - 24px) / 2);
   }
   .advantages-item-title {
+    text-align: left;
     font-size: 36px;
     line-height: 1.11;
   }
 }
 @media screen and (min-width: 1158px) {
+  .advantages {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
   .advantages-list {
+    row-gap: 0px;
   }
   .advantages-list-item {
-    flex-basis: calc((100% - 24px * 3) / 4);
+    width: calc((100% - 24px * 3) / 4);
   }
   .icon-advantages {
     border: 1px solid #8e8f99;
@@ -520,6 +535,9 @@ button {
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
+  }
+  .advantages-item-text {
+  font-weight: 400;
   }
 }
 
@@ -544,6 +562,7 @@ button {
 .team-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 72px;
 }
 .team-list-item {
@@ -613,6 +632,7 @@ button {
   .team-list {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
     row-gap: 64px;
     margin: 0 auto;
@@ -731,6 +751,9 @@ button {
 }
 }
 @media screen and (min-width: 1158px) {
+   .portfolio-list {
+   row-gap: 0px;
+  }
 
   .portfolio-list-item {
   width: calc((100% - 24px * 2) / 3);
@@ -786,19 +809,19 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
-  max-width: 264px;
+  max-width: 288px;
 }
 .footer-media {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.footer-media-text {
+.footer-media-text,
+.footer-text-email {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #fff;
-  margin-bottom: 16px;
   text-align: center;
 }
 .footer-media-list-link {
@@ -820,10 +843,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*gap: 24px;*/
   margin: 0 auto;
-  /*margin-bottom: 32px;*/
-}
+  }
 
 .footer-link-icon {
   fill: #f4f4fd;
@@ -838,6 +859,9 @@ button {
   flex-direction: column;
   gap: 16px;
 }
+.footer-text-email {
+ margin-bottom: 16px;
+}
 .footer-form {
   display: flex;
   flex-direction: column;
@@ -846,7 +870,7 @@ button {
   gap: 24px;
 }
 .footer-input {
-  width: 264px;
+  width: 288px;
   height: 40px;
   border: 1px solid #fff;
   border-radius: 4px;
@@ -883,21 +907,27 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-
+  
 .footer .container {
-   flex-direction: row;
-   flex-wrap: wrap;
+  padding-left: 108px;
+  padding-right: 108px;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 24px;
+  row-gap: 72px;
 }
 .footer-main-text {
   align-items: flex-start;
-  }
-.footer-main-text {
   align-content: flex-start;
+  }
+.footer-text {
+  max-width: 264px;
 }
-
 .footer-media {
  align-content: flex-start;
+}
+.footer-media-text {
+  margin: 0px;
 }
 .footer-form-email {
   display: inline-block;
@@ -905,18 +935,27 @@ button {
 .footer-form {
  flex-direction: row; 
  }
- .footer-media-text {
+ .footer-media-text,
+ .footer-text-email {
   text-align: left;
  }
-
+.footer-input {
+  width: 264px;
+} 
 }
 @media screen and (min-width: 1158px) {
-.footer .container {
+  .footer .container {
+  padding-left: 16px;
+  padding-right: 16px;
   flex-wrap: nowrap;
-  }
+  gap: 0px;
+  row-gap: 0px;
+}
+
   .footer-main-text {
   margin-right: 120px
 }
+
 .footer-media {
   margin-right: 80px;
 }
@@ -1068,7 +1107,7 @@ button {
   gap: 8px;
 }
 .check-text,
-.text-pjlicy {
+.check-text-policy {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
@@ -1079,6 +1118,11 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: baseline;
+}
+.check-text-policy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .check-element {
@@ -1144,10 +1188,9 @@ button {
   padding: 72px 24px 24px 24px;
 }
 .check-text-policy {
-  display: inline-flex;
+  flex-direction: row;
   align-items: baseline;
-  justify-content: center;
-}
+  }
 .check-linck {
   margin-left: 4px;
 }
